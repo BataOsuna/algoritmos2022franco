@@ -182,6 +182,23 @@ class Lista():
             if (personaje==buscado):
                 lista.modificar_elemento(i,'zone_code')
 
+    
+    def barrido_level(self):#! Tyrannosaurus Rex, Spinosaurus, Giganotosaurus | Level: 'critical' o 'high'
+        aux = self.__inicio  
+        while(aux is not None):
+            if(('Tyrannosaurus Rex' in aux.info.nombre or 'Spinosaurus' in aux.info.nombre or 'Giganotosaurus' in aux.info.nombre) and ('critical' in aux.info.alert_level or 'high' in aux.info.alert_level)):
+                print(aux.info)
+            aux = aux.sig
+    
+    def barrido_zona(self):
+        aux = self.__inicio
+        while(aux is not None):
+            if('Raptors' in aux.info.nombre or 'Carnootaurus' in aux.info.nombre):
+                print(aux.info)
+            if('Compsognathus' in aux.info.nombre):
+                print('Codigo de la zona donde se puede encontrar al Compsognathus: ', aux.info.zone_code)
+            aux = aux.sig
+
 # cadena = 'hola'
 # cadena.startswith('C')
 # print(cadena[0])
